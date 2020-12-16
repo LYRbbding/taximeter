@@ -1,0 +1,37 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'divide:divide1000|clk_p'
+Slack : -17.328
+TNS   : -1226.138
+
+Type  : Setup 'clk'
+Slack : -17.153
+TNS   : -1799.359
+
+Type  : Hold 'clk'
+Slack : 1.377
+TNS   : 0.000
+
+Type  : Hold 'divide:divide1000|clk_p'
+Slack : 1.649
+TNS   : 0.000
+
+Type  : Recovery 'clk'
+Slack : -4.813
+TNS   : -158.829
+
+Type  : Removal 'clk'
+Slack : 5.259
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'divide:divide1000|clk_p'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

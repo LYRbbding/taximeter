@@ -1,0 +1,681 @@
+Analysis & Synthesis report for taxi
+Wed Dec 16 19:06:58 2020
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |taxi|lcd_1602_driver:LCD1602|c_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: lcd_1602_driver:LCD1602
+ 14. Parameter Settings for User Entity Instance: divide:divide1000
+ 15. Port Connectivity Checks: "buzzer:soundBUZ|sound_divide:divideSOUND"
+ 16. Port Connectivity Checks: "lcd_1602_driver:LCD1602"
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Dec 16 19:06:58 2020       ;
+; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name               ; taxi                                        ;
+; Top-level Entity Name       ; taxi                                        ;
+; Family                      ; MAX II                                      ;
+; Total logic elements        ; 930                                         ;
+; Total pins                  ; 73                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EPM1270T144C5      ;                    ;
+; Top-level entity name                                            ; taxi               ; taxi               ;
+; Family name                                                      ; MAX II             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                      ;
++----------------------------------+-----------------+------------------------+-------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path        ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------+---------+
+; taxi.v                           ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/taxi.v            ;         ;
+; buzzer.v                         ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/buzzer.v          ;         ;
+; counter38.v                      ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/counter38.v       ;         ;
+; debounce.v                       ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/debounce.v        ;         ;
+; divide.v                         ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/divide.v          ;         ;
+; lattice.v                        ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/lattice.v         ;         ;
+; lcd_1602_driver.v                ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/lcd_1602_driver.v ;         ;
+; segment.v                        ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/segment.v         ;         ;
+; sound_divide.v                   ; yes             ; User Verilog HDL File  ; E:/fpga/taximeter/sound_divide.v    ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 930   ;
+;     -- Combinational with no register       ; 562   ;
+;     -- Register only                        ; 88    ;
+;     -- Combinational with a register        ; 280   ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 401   ;
+;     -- 3 input functions                    ; 144   ;
+;     -- 2 input functions                    ; 269   ;
+;     -- 1 input functions                    ; 27    ;
+;     -- 0 input functions                    ; 1     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 708   ;
+;     -- arithmetic mode                      ; 222   ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 148   ;
+;     -- asynchronous clear/load mode         ; 231   ;
+;                                             ;       ;
+; Total registers                             ; 368   ;
+; Total logic cells in carry chains           ; 240   ;
+; I/O pins                                    ; 73    ;
+; Maximum fan-out node                        ; rst   ;
+; Maximum fan-out                             ; 243   ;
+; Total fan-out                               ; 3694  ;
+; Average fan-out                             ; 3.68  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
++----------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node       ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                            ; Entity Name     ; Library Name ;
++----------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------+-----------------+--------------+
+; |taxi                            ; 930 (390)   ; 368          ; 0          ; 73   ; 0            ; 562 (243)    ; 88 (18)           ; 280 (129)        ; 240 (64)        ; 0 (0)      ; |taxi                                          ; taxi            ; work         ;
+;    |buzzer:soundBUZ|             ; 104 (11)    ; 33           ; 0          ; 0    ; 0            ; 71 (11)      ; 0 (0)             ; 33 (0)           ; 51 (0)          ; 0 (0)      ; |taxi|buzzer:soundBUZ                          ; buzzer          ; work         ;
+;       |sound_divide:divideSOUND| ; 93 (93)     ; 33           ; 0          ; 0    ; 0            ; 60 (60)      ; 0 (0)             ; 33 (33)          ; 51 (51)         ; 0 (0)      ; |taxi|buzzer:soundBUZ|sound_divide:divideSOUND ; sound_divide    ; work         ;
+;    |counter38:speedLED|          ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |taxi|counter38:speedLED                       ; counter38       ; work         ;
+;    |debounce:stoppedKEY|         ; 29 (29)     ; 22           ; 0          ; 0    ; 0            ; 7 (7)        ; 2 (2)             ; 20 (20)          ; 18 (18)         ; 0 (0)      ; |taxi|debounce:stoppedKEY                      ; debounce        ; work         ;
+;    |debounce:subKEY|             ; 29 (29)     ; 22           ; 0          ; 0    ; 0            ; 7 (7)        ; 2 (2)             ; 20 (20)          ; 18 (18)         ; 0 (0)      ; |taxi|debounce:subKEY                          ; debounce        ; work         ;
+;    |debounce:waitingKEY|         ; 30 (30)     ; 22           ; 0          ; 0    ; 0            ; 8 (8)        ; 2 (2)             ; 20 (20)          ; 18 (18)         ; 0 (0)      ; |taxi|debounce:waitingKEY                      ; debounce        ; work         ;
+;    |divide:divide1000|           ; 79 (79)     ; 33           ; 0          ; 0    ; 0            ; 46 (46)      ; 26 (26)           ; 7 (7)            ; 32 (32)         ; 0 (0)      ; |taxi|divide:divide1000                        ; divide          ; work         ;
+;    |lattice:EMPTY|               ; 31 (31)     ; 0            ; 0          ; 0    ; 0            ; 31 (31)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |taxi|lattice:EMPTY                            ; lattice         ; work         ;
+;    |lattice:WELCOME|             ; 21 (21)     ; 0            ; 0          ; 0    ; 0            ; 21 (21)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |taxi|lattice:WELCOME                          ; lattice         ; work         ;
+;    |lcd_1602_driver:LCD1602|     ; 202 (202)   ; 89           ; 0          ; 0    ; 0            ; 113 (113)    ; 38 (38)           ; 51 (51)          ; 39 (39)         ; 0 (0)      ; |taxi|lcd_1602_driver:LCD1602                  ; lcd_1602_driver ; work         ;
+;    |segment:seg_high|            ; 7 (7)       ; 0            ; 0          ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |taxi|segment:seg_high                         ; segment         ; work         ;
++----------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |taxi|lcd_1602_driver:LCD1602|c_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
++----------------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+-------------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+-----------------+--------------------+-------------------+----------------+------------------+--------------------+----------------------+--------------+
+; Name                 ; c_state.ROW2_D ; c_state.ROW2_C ; c_state.ROW2_E ; c_state.ROW2_F ; c_state.ROW2_A ; c_state.ROW2_B ; c_state.ROW2_9 ; c_state.ROW2_8 ; c_state.ROW1_E ; c_state.ROW1_D ; c_state.ROW1_F ; c_state.ROW2_ADDR ; c_state.ROW1_B ; c_state.ROW1_C ; c_state.ROW1_A ; c_state.ROW1_9 ; c_state.ROW2_2 ; c_state.ROW2_3 ; c_state.ROW2_1 ; c_state.ROW2_0 ; c_state.ROW2_5 ; c_state.ROW2_4 ; c_state.ROW2_6 ; c_state.ROW2_7 ; c_state.ROW1_3 ; c_state.ROW1_4 ; c_state.ROW1_2 ; c_state.ROW1_1 ; c_state.ROW1_6 ; c_state.ROW1_5 ; c_state.ROW1_7 ; c_state.ROW1_8 ; c_state.DISP_ON ; c_state.ENTRY_MODE ; c_state.ROW1_ADDR ; c_state.ROW1_0 ; c_state.DISP_OFF ; c_state.DISP_CLEAR ; c_state.SET_FUNCTION ; c_state.IDLE ;
++----------------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+-------------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+-----------------+--------------------+-------------------+----------------+------------------+--------------------+----------------------+--------------+
+; c_state.IDLE         ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 0            ;
+; c_state.SET_FUNCTION ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 1                    ; 1            ;
+; c_state.DISP_CLEAR   ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 1                  ; 0                    ; 1            ;
+; c_state.DISP_OFF     ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 1                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_0       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 1              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_ADDR    ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 1                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ENTRY_MODE   ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 1                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.DISP_ON      ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_8       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_7       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_5       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_6       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_1       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_2       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_4       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_3       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_7       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_6       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_4       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_5       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_0       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_1       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_3       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_2       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_9       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_A       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_C       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_B       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_ADDR    ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_F       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_D       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW1_E       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_8       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_9       ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_B       ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_A       ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_F       ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_E       ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_C       ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
+; c_state.ROW2_D       ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0                 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0               ; 0                  ; 0                 ; 0              ; 0                ; 0                  ; 0                    ; 1            ;
++----------------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+-------------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+-----------------+--------------------+-------------------+----------------+------------------+--------------------+----------------------+--------------+
+
+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++-------------------------------------------------------+----------------------------------------+
+; Register name                                         ; Reason for Removal                     ;
++-------------------------------------------------------+----------------------------------------+
+; buzzer:soundBUZ|sound_divide:divideSOUND|clk_n        ; Lost fanout                            ;
+; buzzer:soundBUZ|sound_divide:divideSOUND|cnt_n[0..31] ; Lost fanout                            ;
+; people1_price[2][7]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[2][6]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[2][5]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[2][4]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[1][7]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[1][6]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[1][5]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[1][4]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[0][7]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[0][6]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[0][5]                                   ; Stuck at GND due to stuck port data_in ;
+; people1_price[0][4]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[2][7]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[2][6]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[2][5]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[2][4]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[1][7]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[1][6]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[1][5]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[1][4]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[0][7]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[0][6]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[0][5]                                   ; Stuck at GND due to stuck port data_in ;
+; people2_price[0][4]                                   ; Stuck at GND due to stuck port data_in ;
+; lcd_1602_driver:LCD1602|c_state~44                    ; Lost fanout                            ;
+; lcd_1602_driver:LCD1602|c_state~45                    ; Lost fanout                            ;
+; lcd_1602_driver:LCD1602|c_state~46                    ; Lost fanout                            ;
+; lcd_1602_driver:LCD1602|c_state~47                    ; Lost fanout                            ;
+; lcd_1602_driver:LCD1602|c_state~48                    ; Lost fanout                            ;
+; lcd_1602_driver:LCD1602|c_state~49                    ; Lost fanout                            ;
+; Total Number of Removed Registers = 63                ;                                        ;
++-------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 368   ;
+; Number of registers using Synchronous Clear  ; 139   ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 231   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 196   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; seg_data[6][0]                          ; 7       ;
+; seg_data[5][0]                          ; 8       ;
+; seg_data[7][0]                          ; 8       ;
+; seg_data[1][0]                          ; 10      ;
+; seg_data[0][0]                          ; 12      ;
+; seg_data[0][1]                          ; 12      ;
+; seg_data[6][3]                          ; 5       ;
+; seg_data[5][3]                          ; 5       ;
+; seg_data[7][3]                          ; 5       ;
+; debounce:subKEY|key_2nd_pre             ; 1       ;
+; debounce:subKEY|key_2nd_now             ; 3       ;
+; debounce:stoppedKEY|key_2nd_pre         ; 1       ;
+; debounce:stoppedKEY|key_2nd_now         ; 3       ;
+; debounce:waitingKEY|key_2nd_now         ; 3       ;
+; debounce:waitingKEY|key_2nd_pre         ; 1       ;
+; debounce:subKEY|key_1st_now             ; 2       ;
+; debounce:subKEY|key_1st_pre             ; 1       ;
+; debounce:stoppedKEY|key_1st_now         ; 2       ;
+; debounce:stoppedKEY|key_1st_pre         ; 1       ;
+; debounce:waitingKEY|key_1st_now         ; 2       ;
+; debounce:waitingKEY|key_1st_pre         ; 1       ;
+; Total number of inverted registers = 21 ;         ;
++-----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |taxi|lcd_1602_driver:LCD1602|cnt_500hz[1] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |taxi|seg_data[7][1]                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |taxi|seg_data[5][1]                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |taxi|mile_cnt[6]                          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |taxi|sub_cnt[0]                           ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |taxi|mile_mcnt[3]                         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |taxi|snd_status[3]                        ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |taxi|seg_data[6][2]                       ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |taxi|wait_mcnt[7]                         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |taxi|seg_data[3][2]                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |taxi|seg_data[4][3]                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |taxi|seg_data[2][2]                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |taxi|wait_cnt[1]                          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |taxi|mile_speed[1]                        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |taxi|seg_data[1][2]                       ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |taxi|night_cnt[3]                         ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; Yes        ; |taxi|seg_data[0][2]                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |taxi|seg_data[7][0]                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |taxi|seg_data[5][0]                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |taxi|seg_data[6][0]                       ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; Yes        ; |taxi|seg_data[0][1]                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |taxi|lattice:EMPTY|Mux15                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |taxi|lattice:EMPTY|Mux15                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |taxi|lattice:WELCOME|Mux0                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |taxi|lattice:EMPTY|Mux15                  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |taxi|lattice_Rcol                         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |taxi|lattice_Gcol                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |taxi|lattice:EMPTY|Mux15                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |taxi|lattice:EMPTY|Mux15                  ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |taxi|Mux0                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lcd_1602_driver:LCD1602 ;
++----------------+----------+------------------------------------------+
+; Parameter Name ; Value    ; Type                                     ;
++----------------+----------+------------------------------------------+
+; TIME_20MS      ; 1000000  ; Signed Integer                           ;
+; TIME_500HZ     ; 100000   ; Signed Integer                           ;
+; IDLE           ; 00000000 ; Unsigned Binary                          ;
+; SET_FUNCTION   ; 00000001 ; Unsigned Binary                          ;
+; DISP_OFF       ; 00000011 ; Unsigned Binary                          ;
+; DISP_CLEAR     ; 00000010 ; Unsigned Binary                          ;
+; ENTRY_MODE     ; 00000110 ; Unsigned Binary                          ;
+; DISP_ON        ; 00000111 ; Unsigned Binary                          ;
+; ROW1_ADDR      ; 00000101 ; Unsigned Binary                          ;
+; ROW1_0         ; 00000100 ; Unsigned Binary                          ;
+; ROW1_1         ; 00001100 ; Unsigned Binary                          ;
+; ROW1_2         ; 00001101 ; Unsigned Binary                          ;
+; ROW1_3         ; 00001111 ; Unsigned Binary                          ;
+; ROW1_4         ; 00001110 ; Unsigned Binary                          ;
+; ROW1_5         ; 00001010 ; Unsigned Binary                          ;
+; ROW1_6         ; 00001011 ; Unsigned Binary                          ;
+; ROW1_7         ; 00001001 ; Unsigned Binary                          ;
+; ROW1_8         ; 00001000 ; Unsigned Binary                          ;
+; ROW1_9         ; 00011000 ; Unsigned Binary                          ;
+; ROW1_A         ; 00011001 ; Unsigned Binary                          ;
+; ROW1_B         ; 00011011 ; Unsigned Binary                          ;
+; ROW1_C         ; 00011010 ; Unsigned Binary                          ;
+; ROW1_D         ; 00011110 ; Unsigned Binary                          ;
+; ROW1_E         ; 00011111 ; Unsigned Binary                          ;
+; ROW1_F         ; 00011101 ; Unsigned Binary                          ;
+; ROW2_ADDR      ; 00011100 ; Unsigned Binary                          ;
+; ROW2_0         ; 00010100 ; Unsigned Binary                          ;
+; ROW2_1         ; 00010101 ; Unsigned Binary                          ;
+; ROW2_2         ; 00010111 ; Unsigned Binary                          ;
+; ROW2_3         ; 00010110 ; Unsigned Binary                          ;
+; ROW2_4         ; 00010010 ; Unsigned Binary                          ;
+; ROW2_5         ; 00010011 ; Unsigned Binary                          ;
+; ROW2_6         ; 00010001 ; Unsigned Binary                          ;
+; ROW2_7         ; 00010000 ; Unsigned Binary                          ;
+; ROW2_8         ; 00110000 ; Unsigned Binary                          ;
+; ROW2_9         ; 00110001 ; Unsigned Binary                          ;
+; ROW2_A         ; 00110011 ; Unsigned Binary                          ;
+; ROW2_B         ; 00110010 ; Unsigned Binary                          ;
+; ROW2_C         ; 00110110 ; Unsigned Binary                          ;
+; ROW2_D         ; 00110111 ; Unsigned Binary                          ;
+; ROW2_E         ; 00110101 ; Unsigned Binary                          ;
+; ROW2_F         ; 00110100 ; Unsigned Binary                          ;
++----------------+----------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divide:divide1000 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                        ;
+; N              ; 50000 ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "buzzer:soundBUZ|sound_divide:divideSOUND"                                                                                                                                          ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; N     ; Input ; Warning  ; Input port expression (20 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "N[31..20]" will be connected to GND.                                      ;
+; rst_n ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "lcd_1602_driver:LCD1602" ;
++-----------------+-------+----------+----------------+
+; Port            ; Type  ; Severity ; Details        ;
++-----------------+-------+----------+----------------+
+; row_1[57..56]   ; Input ; Info     ; Stuck at VCC   ;
+; row_1[33..32]   ; Input ; Info     ; Stuck at VCC   ;
+; row_1[27..24]   ; Input ; Info     ; Stuck at VCC   ;
+; row_1[127..126] ; Input ; Info     ; Stuck at GND   ;
+; row_1[90..89]   ; Input ; Info     ; Stuck at GND   ;
+; row_1[87..86]   ; Input ; Info     ; Stuck at GND   ;
+; row_1[79..78]   ; Input ; Info     ; Stuck at GND   ;
+; row_1[71..70]   ; Input ; Info     ; Stuck at GND   ;
+; row_1[52..51]   ; Input ; Info     ; Stuck at GND   ;
+; row_1[35..34]   ; Input ; Info     ; Stuck at GND   ;
+; row_1[7..6]     ; Input ; Info     ; Stuck at GND   ;
+; row_1[4..0]     ; Input ; Info     ; Stuck at GND   ;
+; row_1[125]      ; Input ; Info     ; Stuck at VCC   ;
+; row_1[119]      ; Input ; Info     ; Stuck at GND   ;
+; row_1[116]      ; Input ; Info     ; Stuck at VCC   ;
+; row_1[111]      ; Input ; Info     ; Stuck at GND   ;
+; row_1[110]      ; Input ; Info     ; Stuck at VCC   ;
+; row_1[108]      ; Input ; Info     ; Stuck at GND   ;
+; row_1[106]      ; Input ; Info     ; Stuck at GND   ;
+; row_1[104]      ; Input ; Info     ; Stuck at VCC   ;
+; row_1[103]      ; Input ; Info     ; Stuck at GND   ;
+; row_1[102]      ; Input ; Info     ; Stuck at VCC   ;
+; row_1[99]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[97]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[95]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[92]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[85]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[77]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[69]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[63]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[62]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[60]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[59]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[55]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[49]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[47]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[39]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[38]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[31]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[28]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[23]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[22]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[20]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[19]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[16]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[15]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[14]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[12]       ; Input ; Info     ; Stuck at GND   ;
+; row_1[10]       ; Input ; Info     ; Stuck at VCC   ;
+; row_1[9]        ; Input ; Info     ; Stuck at GND   ;
+; row_1[8]        ; Input ; Info     ; Stuck at VCC   ;
+; row_1[5]        ; Input ; Info     ; Stuck at VCC   ;
+; row_2[85..84]   ; Input ; Info     ; Stuck at VCC   ;
+; row_2[123..122] ; Input ; Info     ; Stuck at GND   ;
+; row_2[120..119] ; Input ; Info     ; Stuck at GND   ;
+; row_2[48..47]   ; Input ; Info     ; Stuck at GND   ;
+; row_2[42..41]   ; Input ; Info     ; Stuck at GND   ;
+; row_2[39..38]   ; Input ; Info     ; Stuck at GND   ;
+; row_2[35..34]   ; Input ; Info     ; Stuck at GND   ;
+; row_2[32..31]   ; Input ; Info     ; Stuck at GND   ;
+; row_2[127]      ; Input ; Info     ; Stuck at GND   ;
+; row_2[118]      ; Input ; Info     ; Stuck at VCC   ;
+; row_2[117]      ; Input ; Info     ; Stuck at GND   ;
+; row_2[113]      ; Input ; Info     ; Stuck at GND   ;
+; row_2[111]      ; Input ; Info     ; Stuck at GND   ;
+; row_2[110]      ; Input ; Info     ; Stuck at VCC   ;
+; row_2[108]      ; Input ; Info     ; Stuck at GND   ;
+; row_2[105]      ; Input ; Info     ; Stuck at VCC   ;
+; row_2[103]      ; Input ; Info     ; Stuck at GND   ;
+; row_2[101]      ; Input ; Info     ; Stuck at VCC   ;
+; row_2[95]       ; Input ; Info     ; Stuck at GND   ;
+; row_2[93]       ; Input ; Info     ; Stuck at VCC   ;
+; row_2[87]       ; Input ; Info     ; Stuck at GND   ;
+; row_2[55]       ; Input ; Info     ; Stuck at GND   ;
+; row_2[53]       ; Input ; Info     ; Stuck at VCC   ;
+; row_2[52]       ; Input ; Info     ; Stuck at GND   ;
+; row_2[45]       ; Input ; Info     ; Stuck at VCC   ;
+; row_2[37]       ; Input ; Info     ; Stuck at VCC   ;
+; row_2[24]       ; Input ; Info     ; Stuck at GND   ;
++-----------------+-------+----------+----------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Wed Dec 16 19:06:50 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off taxi -c taxi
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file taxi.v
+    Info (12023): Found entity 1: taxi File: E:/fpga/taximeter/taxi.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file buzzer.v
+    Info (12023): Found entity 1: buzzer File: E:/fpga/taximeter/buzzer.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file counter38.v
+    Info (12023): Found entity 1: counter38 File: E:/fpga/taximeter/counter38.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file debounce.v
+    Info (12023): Found entity 1: debounce File: E:/fpga/taximeter/debounce.v Line: 2
+Warning (12090): Entity "divide" obtained from "divide.v" instead of from Quartus Prime megafunction library File: E:/fpga/taximeter/divide.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file divide.v
+    Info (12023): Found entity 1: divide File: E:/fpga/taximeter/divide.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file lattice.v
+    Info (12023): Found entity 1: lattice File: E:/fpga/taximeter/lattice.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file lcd_1602_driver.v
+    Info (12023): Found entity 1: lcd_1602_driver File: E:/fpga/taximeter/lcd_1602_driver.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file segment.v
+    Info (12023): Found entity 1: segment File: E:/fpga/taximeter/segment.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file sound_divide.v
+    Info (12023): Found entity 1: sound_divide File: E:/fpga/taximeter/sound_divide.v Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at lcd_1602_driver.v(54): created implicit net for "write_flag" File: E:/fpga/taximeter/lcd_1602_driver.v Line: 54
+Info (12127): Elaborating entity "taxi" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at taxi.v(95): truncated value with size 3 to match size of target (1) File: E:/fpga/taximeter/taxi.v Line: 95
+Warning (10855): Verilog HDL warning at taxi.v(85): initial value for variable seg_cnt should be constant File: E:/fpga/taximeter/taxi.v Line: 85
+Warning (10230): Verilog HDL assignment warning at taxi.v(136): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 136
+Warning (10230): Verilog HDL assignment warning at taxi.v(142): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 142
+Warning (10230): Verilog HDL assignment warning at taxi.v(145): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 145
+Warning (10230): Verilog HDL assignment warning at taxi.v(147): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 147
+Warning (10230): Verilog HDL assignment warning at taxi.v(169): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 169
+Warning (10230): Verilog HDL assignment warning at taxi.v(172): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 172
+Warning (10230): Verilog HDL assignment warning at taxi.v(214): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 214
+Warning (10230): Verilog HDL assignment warning at taxi.v(217): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 217
+Warning (10230): Verilog HDL assignment warning at taxi.v(221): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 221
+Warning (10230): Verilog HDL assignment warning at taxi.v(240): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 240
+Warning (10230): Verilog HDL assignment warning at taxi.v(243): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 243
+Warning (10230): Verilog HDL assignment warning at taxi.v(254): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 254
+Warning (10230): Verilog HDL assignment warning at taxi.v(262): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 262
+Warning (10230): Verilog HDL assignment warning at taxi.v(265): truncated value with size 32 to match size of target (10) File: E:/fpga/taximeter/taxi.v Line: 265
+Warning (10230): Verilog HDL assignment warning at taxi.v(280): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 280
+Warning (10230): Verilog HDL assignment warning at taxi.v(284): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 284
+Warning (10230): Verilog HDL assignment warning at taxi.v(303): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 303
+Warning (10230): Verilog HDL assignment warning at taxi.v(306): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 306
+Warning (10230): Verilog HDL assignment warning at taxi.v(318): truncated value with size 32 to match size of target (7) File: E:/fpga/taximeter/taxi.v Line: 318
+Warning (10230): Verilog HDL assignment warning at taxi.v(321): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 321
+Warning (10230): Verilog HDL assignment warning at taxi.v(324): truncated value with size 32 to match size of target (10) File: E:/fpga/taximeter/taxi.v Line: 324
+Warning (10230): Verilog HDL assignment warning at taxi.v(332): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 332
+Warning (10230): Verilog HDL assignment warning at taxi.v(335): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 335
+Warning (10230): Verilog HDL assignment warning at taxi.v(344): truncated value with size 9 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 344
+Warning (10230): Verilog HDL assignment warning at taxi.v(399): truncated value with size 32 to match size of target (2) File: E:/fpga/taximeter/taxi.v Line: 399
+Info (12128): Elaborating entity "lattice" for hierarchy "lattice:EMPTY" File: E:/fpga/taximeter/taxi.v Line: 356
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(26): variable "onride" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 26
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(28): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 28
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(29): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 29
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(30): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 30
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(31): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 31
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(32): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 32
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(33): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 33
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(34): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 34
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(35): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 35
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(36): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 36
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(37): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 37
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(38): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 38
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(39): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 39
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(40): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 40
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(41): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 41
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(42): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 42
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(43): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 43
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(48): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 48
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(49): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 49
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(50): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 50
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(51): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 51
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(52): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 52
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(53): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 53
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(54): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 54
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(55): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 55
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(56): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 56
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(57): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 57
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(58): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 58
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(59): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 59
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(60): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 60
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(61): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 61
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(62): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 62
+Warning (10235): Verilog HDL Always Construct warning at lattice.v(63): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 63
+Warning (10030): Net "lat_data_R.data_a" at lattice.v(8) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 8
+Warning (10030): Net "lat_data_R.waddr_a" at lattice.v(8) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 8
+Warning (10030): Net "lat_data_G.data_a" at lattice.v(9) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 9
+Warning (10030): Net "lat_data_G.waddr_a" at lattice.v(9) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 9
+Warning (10030): Net "lat_data_R.we_a" at lattice.v(8) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 8
+Warning (10030): Net "lat_data_G.we_a" at lattice.v(9) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 9
+Info (12128): Elaborating entity "lcd_1602_driver" for hierarchy "lcd_1602_driver:LCD1602" File: E:/fpga/taximeter/taxi.v Line: 377
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:waitingKEY" File: E:/fpga/taximeter/taxi.v Line: 385
+Info (12128): Elaborating entity "buzzer" for hierarchy "buzzer:soundBUZ" File: E:/fpga/taximeter/taxi.v Line: 403
+Info (12128): Elaborating entity "sound_divide" for hierarchy "buzzer:soundBUZ|sound_divide:divideSOUND" File: E:/fpga/taximeter/buzzer.v Line: 23
+Info (12128): Elaborating entity "divide" for hierarchy "divide:divide1000" File: E:/fpga/taximeter/taxi.v Line: 410
+Info (12128): Elaborating entity "segment" for hierarchy "segment:seg_high" File: E:/fpga/taximeter/taxi.v Line: 411
+Warning (10030): Net "seg.data_a" at segment.v(6) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/segment.v Line: 6
+Warning (10030): Net "seg.waddr_a" at segment.v(6) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/segment.v Line: 6
+Warning (10030): Net "seg.we_a" at segment.v(6) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/segment.v Line: 6
+Info (12128): Elaborating entity "counter38" for hierarchy "counter38:speedLED" File: E:/fpga/taximeter/taxi.v Line: 412
+Warning (10235): Verilog HDL Always Construct warning at counter38.v(9): variable "en" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/counter38.v Line: 9
+Critical Warning (127005): Memory depth (16) in the design file differs from memory depth (10) in the Memory Initialization File "E:/fpga/taximeter/db/taxi.ram0_segment_b1ef0119.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg_AX[7]" is stuck at GND File: E:/fpga/taximeter/taxi.v Line: 21
+Info (18000): Registers with preset signals will power-up high File: E:/fpga/taximeter/debounce.v Line: 37
+Info (17049): 39 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 1003 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 62 output pins
+    Info (21061): Implemented 930 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 77 warnings
+    Info: Peak virtual memory: 4704 megabytes
+    Info: Processing ended: Wed Dec 16 19:06:58 2020
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
+
+

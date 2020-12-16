@@ -1,0 +1,134 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+# Date created = 18:57:13  December 16, 2020
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		taxi_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name DEVICE EPM1270T144C5
+set_global_assignment -name TOP_LEVEL_ENTITY taxi
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:57:13  DECEMBER 16, 2020"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 5
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
+set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+set_global_assignment -name VERILOG_FILE taxi.v
+set_global_assignment -name VERILOG_FILE buzzer.v
+set_global_assignment -name VERILOG_FILE counter38.v
+set_global_assignment -name VERILOG_FILE debounce.v
+set_global_assignment -name VERILOG_FILE divide.v
+set_global_assignment -name VERILOG_FILE lattice.v
+set_global_assignment -name VERILOG_FILE lcd_1602_driver.v
+set_global_assignment -name VERILOG_FILE segment.v
+set_global_assignment -name VERILOG_FILE sound_divide.v
+set_location_assignment PIN_18 -to clk
+set_location_assignment PIN_124 -to rst
+set_location_assignment PIN_132 -to mile_v[2]
+set_location_assignment PIN_133 -to mile_v[1]
+set_location_assignment PIN_134 -to mile_v[0]
+set_location_assignment PIN_129 -to onride
+set_location_assignment PIN_127 -to double
+set_location_assignment PIN_125 -to night
+set_location_assignment PIN_20 -to subtotal
+set_location_assignment PIN_91 -to waiting
+set_location_assignment PIN_122 -to stopped
+set_location_assignment PIN_31 -to seg_cat[7]
+set_location_assignment PIN_30 -to seg_cat[6]
+set_location_assignment PIN_70 -to seg_cat[5]
+set_location_assignment PIN_69 -to seg_cat[4]
+set_location_assignment PIN_68 -to seg_cat[3]
+set_location_assignment PIN_67 -to seg_cat[2]
+set_location_assignment PIN_66 -to seg_cat[1]
+set_location_assignment PIN_63 -to seg_cat[0]
+set_location_assignment PIN_51 -to seg_AX[7]
+set_location_assignment PIN_52 -to seg_AX[6]
+set_location_assignment PIN_53 -to seg_AX[5]
+set_location_assignment PIN_55 -to seg_AX[4]
+set_location_assignment PIN_57 -to seg_AX[3]
+set_location_assignment PIN_58 -to seg_AX[2]
+set_location_assignment PIN_59 -to seg_AX[1]
+set_location_assignment PIN_62 -to seg_AX[0]
+set_location_assignment PIN_73 -to speed_led[7]
+set_location_assignment PIN_74 -to speed_led[6]
+set_location_assignment PIN_75 -to speed_led[5]
+set_location_assignment PIN_76 -to speed_led[4]
+set_location_assignment PIN_77 -to speed_led[3]
+set_location_assignment PIN_78 -to speed_led[2]
+set_location_assignment PIN_79 -to speed_led[1]
+set_location_assignment PIN_80 -to speed_led[0]
+set_location_assignment PIN_139 -to night_led
+set_location_assignment PIN_138 -to double_led
+set_location_assignment PIN_137 -to ride_led
+set_location_assignment PIN_60 -to clk_sound
+set_location_assignment PIN_8 -to lattice_row[7]
+set_location_assignment PIN_7 -to lattice_row[6]
+set_location_assignment PIN_6 -to lattice_row[5]
+set_location_assignment PIN_5 -to lattice_row[4]
+set_location_assignment PIN_4 -to lattice_row[3]
+set_location_assignment PIN_3 -to lattice_row[2]
+set_location_assignment PIN_2 -to lattice_row[1]
+set_location_assignment PIN_1 -to lattice_row[0]
+set_location_assignment PIN_22 -to lattice_Rcol[0]
+set_location_assignment PIN_21 -to lattice_Rcol[1]
+set_location_assignment PIN_16 -to lattice_Rcol[2]
+set_location_assignment PIN_15 -to lattice_Rcol[3]
+set_location_assignment PIN_14 -to lattice_Rcol[4]
+set_location_assignment PIN_13 -to lattice_Rcol[5]
+set_location_assignment PIN_12 -to lattice_Rcol[6]
+set_location_assignment PIN_11 -to lattice_Rcol[7]
+set_location_assignment PIN_45 -to lattice_Gcol[0]
+set_location_assignment PIN_44 -to lattice_Gcol[1]
+set_location_assignment PIN_43 -to lattice_Gcol[2]
+set_location_assignment PIN_42 -to lattice_Gcol[3]
+set_location_assignment PIN_41 -to lattice_Gcol[4]
+set_location_assignment PIN_40 -to lattice_Gcol[5]
+set_location_assignment PIN_39 -to lattice_Gcol[6]
+set_location_assignment PIN_38 -to lattice_Gcol[7]
+set_location_assignment PIN_108 -to lcd_en
+set_location_assignment PIN_48 -to lcd_rs
+set_location_assignment PIN_107 -to lcd_data[7]
+set_location_assignment PIN_106 -to lcd_data[6]
+set_location_assignment PIN_105 -to lcd_data[5]
+set_location_assignment PIN_104 -to lcd_data[4]
+set_location_assignment PIN_103 -to lcd_data[3]
+set_location_assignment PIN_102 -to lcd_data[2]
+set_location_assignment PIN_110 -to lcd_data[1]
+set_location_assignment PIN_101 -to lcd_data[0]
