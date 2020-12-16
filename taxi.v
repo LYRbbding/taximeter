@@ -99,6 +99,7 @@ module taxi (
     seg_data[6] =  4'd9;  seg_data[7] =  4'd9;
     //点阵初始化
     lat_Vcnt    =  3'b0;  lat_Hcnt    =  4'b0;
+	lat_Htimer  =  9'b0;
     //计费初始化
     Myuan       =  4'd2;     Mjiao       =  4'd0;
     Wyuan       =  4'd1;     Wjiao       =  4'd0;
