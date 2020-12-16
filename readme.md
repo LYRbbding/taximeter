@@ -41,19 +41,11 @@
 代码逻辑结构及功能大致介绍如下：
 
 ─ ─ ─  taxi.v: top level design
-
 　└ ─ ─  buzzer.v: 音频信号控制
-
 　　└ ─ ─  sound_divide.v  音频分频器, divide.v修改版
-
 　└ ─ ─  counter38.v: 速度LED控制
-
 　└ ─ ─  debounce.v: 按键消抖模块
-
 　└ ─ ─  divide.v: 时钟分频模块
-
 　└ ─ ─  lattice.v: 点阵控制模块
-
 　└ ─ ─  lcd_1602_driver.v: lcd驱动模块
-
 　└ ─ ─  segment.v: 数码管显示模块
