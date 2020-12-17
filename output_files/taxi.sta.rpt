@@ -1,5 +1,5 @@
 Timing Analyzer report for taxi
-Thu Dec 17 10:55:37 2020
+Thu Dec 17 15:15:28 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -81,10 +81,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -933,7 +934,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Dec 17 10:55:35 2020
+    Info: Processing started: Thu Dec 17 15:15:26 2020
 Info: Command: quartus_sta taxi -c taxi
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -978,7 +979,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 4681 megabytes
-    Info: Processing ended: Thu Dec 17 10:55:37 2020
+    Info: Processing ended: Thu Dec 17 15:15:28 2020
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:03
 

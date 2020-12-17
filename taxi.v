@@ -1,4 +1,4 @@
-//taxi.v, top level design
+//taxi.v, 顶层模块, 该代码可从https://github.com/LYRbbding/taximeter直接下载运行
 module taxi (
   clk, rst, mile_v, onride, double, night, subtotal, waiting, stopped,
   seg_cat, seg_AX, speed_led, night_led, double_led, ride_led, clk_sound,
@@ -86,36 +86,36 @@ module taxi (
     //音频初始化
     snd_status  =  4'b0;  sound_on    =  1'b0;
     sound_cnt   =  9'b0;  sub_cnt     =  2'b0;
-    //计数初始化
+    //计数初始化, 计费用相关变量置0
     mile_mcnt   = 10'b0;  mile_speed  =  3'b0;
     mile_cnt    =  7'b0;  wait_status =  1'b0;
     wait_mcnt   = 10'b0;  wait_cnt    =  4'b0;
     stop_cnt    =  1'b0;  night_cnt   =  4'b0;
-    //数码管初始化
+    //数码管初始化, 点亮瞬间值为99900013, 检测数码管是否正常工作
     seg_cnt[0]  =  3'b0;
     seg_data[0] =  4'd3;  seg_data[1] =  4'd1;
     seg_data[2] =  4'd0;  seg_data[3] =  4'd0;
     seg_data[4] =  4'd0;  seg_data[5] =  4'd9;
     seg_data[6] =  4'd9;  seg_data[7] =  4'd9;
-    //点阵初始化
+    //点阵初始化, 扫描位置归0
     lat_Vcnt    =  3'b0;  lat_Hcnt    =  4'b0;
-	lat_Htimer  =  9'b0;
+    lat_Htimer  =  9'b0;
     //计费初始化
-    Myuan       =  4'd2;     Mjiao       =  4'd0;
-    Wyuan       =  4'd1;     Wjiao       =  4'd0;
+    Myuan       =  4'd2;  Mjiao       =  4'd0;    //正常模式2元每1公里里程
+    Wyuan       =  4'd1;  Wjiao       =  4'd0;    //正常模式1元每3秒计时
   end
     
   always @(double or night or sub_cnt) begin
     //拨码开关变化, 改变计费单位价格
-    if(sub_cnt == 0)
-      case({double,night})
+    if(sub_cnt == 0)        //合乘阶段值为0时计价(仅在合乘时值生效)
+      case({double,night})  //都进行判断是为了简化代码逻辑
         2'b00:    begin  Myuan = 2;  Mjiao = 0;  Wyuan = 1;  Wjiao = 0;  end
         2'b01:    begin  Myuan = 2;  Mjiao = 4;  Wyuan = 1;  Wjiao = 2;  end
         2'b10:    begin  Myuan = 1;  Mjiao = 2;  Wyuan = 0;  Wjiao = 6;  end
         2'b11:    begin  Myuan = 1;  Mjiao = 4;  Wyuan = 0;  Wjiao = 7;  end
         default:  begin  Myuan = 2;  Mjiao = 0;  Wyuan = 1;  Wjiao = 0;  end
       endcase
-    else
+    else                    //合乘阶段值非0时计价
       case({double,night})
         2'b00:    begin  Myuan = 2;  Mjiao = 0;  Wyuan = 1;  Wjiao = 0;  end
         2'b01:    begin  Myuan = 2;  Mjiao = 4;  Wyuan = 1;  Wjiao = 2;  end
@@ -126,7 +126,7 @@ module taxi (
   end
   
   always @(posedge clk1k or posedge rst) begin
-    if(rst) begin
+    if(rst) begin     //扫描强制归0
       seg_cnt <= 0;
       lat_Vcnt <= 0;
     end
@@ -134,13 +134,13 @@ module taxi (
     else begin
       //数码管扫描
       if(onride) begin
-        seg_cnt <= seg_cnt + 1;
-        seg_cat[seg_cnt] <= 1'b1;
-        seg_cat[seg_cnt+3'b001] <= 1'b0;
+        seg_cnt <= seg_cnt + 1;             //扫描位置计数, 低电平有效
+        seg_cat[seg_cnt] <= 1'b1;           //前一扫描位阴极置1, 即关闭显示
+        seg_cat[seg_cnt+3'b001] <= 1'b0;    //当前扫描位阴极置0, 即开启显示
       end
       
       //点阵扫描
-      lat_Vcnt <= lat_Vcnt + 1;
+      lat_Vcnt <= lat_Vcnt + 1;             //逻辑同数码管扫描
       lattice_row[lat_Vcnt] <= 1'b1;
       lattice_row[lat_Vcnt+3'b001] <= 1'b0;
       lat_Htimer <= lat_Htimer + 1;
@@ -149,7 +149,7 @@ module taxi (
       
       //LCD1602价格显示控制
       if(onride && (!stop_cnt && sub_cnt != 1)) begin
-        if(sub_cnt == 0)  begin
+        if(sub_cnt == 0)  begin             //合乘状态
           people1_price[2] <= seg_data[2];
           people1_price[1] <= seg_data[1];
           people1_price[0] <= seg_data[0];
@@ -157,7 +157,7 @@ module taxi (
           people2_price[1] <= seg_data[1];
           people2_price[0] <= seg_data[0];
         end
-        else begin
+        else begin                          //单人状态
           people1_price[2] <= seg_data[2];
           people1_price[1] <= seg_data[1];
           people1_price[0] <= seg_data[0];
@@ -181,14 +181,14 @@ module taxi (
             seg_data[6] == 4'd0 && seg_data[7] == 4'd0) begin
           seg_data[0] <= 0;
           night_cnt <= 4'd6;
-        end
+        end     //夜间合乘
         else if(night && seg_data[0] == 4'd3 && seg_data[1] == 4'd1 &&
                 seg_data[2] == 4'd0 && seg_data[3] == 4'd0 &&
                 seg_data[4] == 4'd0 && seg_data[5] == 4'd0 &&
                 seg_data[6] == 4'd0 && seg_data[7] == 4'd0) begin
           seg_data[0] <= 6;
           night_cnt <= 4'd6;
-        end
+        end     //夜间
         else if(double && seg_data[0] == 4'd3 && seg_data[1] == 4'd1 &&
                 seg_data[2] == 4'd0 && seg_data[3] == 4'd0 &&
                 seg_data[4] == 4'd0 && seg_data[5] == 4'd0 &&
@@ -196,7 +196,7 @@ module taxi (
           seg_data[1] <= 0;
           seg_data[0] <= 8;
           night_cnt <= 4'd8;
-        end
+        end     //合乘
         
         //等待状态操作
         if (wait_status) begin
@@ -316,10 +316,10 @@ module taxi (
                             night_cnt + Mjiao < night_cnt) ? 4'd6 : 4'd0);
                 end
               end
-              mile_cnt <= mile_cnt + 1;
+              mile_cnt <= mile_cnt + 1;       //里程计数++
             end
             else
-              mile_speed <= mile_speed + 1;
+              mile_speed <= mile_speed + 1;   //一公里未计满, 只在公里内增加
           end
           else
             mile_mcnt <= mile_mcnt + 1;
