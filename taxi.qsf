@@ -132,3 +132,7 @@ set_location_assignment PIN_103 -to lcd_data[3]
 set_location_assignment PIN_102 -to lcd_data[2]
 set_location_assignment PIN_110 -to lcd_data[1]
 set_location_assignment PIN_101 -to lcd_data[0]
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation

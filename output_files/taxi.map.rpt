@@ -1,5 +1,5 @@
 Analysis & Synthesis report for taxi
-Wed Dec 16 19:06:58 2020
+Thu Dec 17 10:55:17 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -49,7 +49,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed Dec 16 19:06:58 2020       ;
+; Analysis & Synthesis Status ; Successful - Thu Dec 17 10:55:17 2020       ;
 ; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name               ; taxi                                        ;
 ; Top-level Entity Name       ; taxi                                        ;
@@ -559,7 +559,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Dec 16 19:06:50 2020
+    Info: Processing started: Thu Dec 17 10:55:01 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off taxi -c taxi
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -586,32 +586,32 @@ Warning (10236): Verilog HDL Implicit Net warning at lcd_1602_driver.v(54): crea
 Info (12127): Elaborating entity "taxi" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at taxi.v(95): truncated value with size 3 to match size of target (1) File: E:/fpga/taximeter/taxi.v Line: 95
 Warning (10855): Verilog HDL warning at taxi.v(85): initial value for variable seg_cnt should be constant File: E:/fpga/taximeter/taxi.v Line: 85
-Warning (10230): Verilog HDL assignment warning at taxi.v(136): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 136
-Warning (10230): Verilog HDL assignment warning at taxi.v(142): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 142
-Warning (10230): Verilog HDL assignment warning at taxi.v(145): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 145
-Warning (10230): Verilog HDL assignment warning at taxi.v(147): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 147
-Warning (10230): Verilog HDL assignment warning at taxi.v(169): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 169
-Warning (10230): Verilog HDL assignment warning at taxi.v(172): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 172
-Warning (10230): Verilog HDL assignment warning at taxi.v(214): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 214
-Warning (10230): Verilog HDL assignment warning at taxi.v(217): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 217
-Warning (10230): Verilog HDL assignment warning at taxi.v(221): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 221
-Warning (10230): Verilog HDL assignment warning at taxi.v(240): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 240
-Warning (10230): Verilog HDL assignment warning at taxi.v(243): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 243
-Warning (10230): Verilog HDL assignment warning at taxi.v(254): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 254
-Warning (10230): Verilog HDL assignment warning at taxi.v(262): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 262
-Warning (10230): Verilog HDL assignment warning at taxi.v(265): truncated value with size 32 to match size of target (10) File: E:/fpga/taximeter/taxi.v Line: 265
-Warning (10230): Verilog HDL assignment warning at taxi.v(280): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 280
-Warning (10230): Verilog HDL assignment warning at taxi.v(284): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 284
-Warning (10230): Verilog HDL assignment warning at taxi.v(303): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 303
-Warning (10230): Verilog HDL assignment warning at taxi.v(306): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 306
-Warning (10230): Verilog HDL assignment warning at taxi.v(318): truncated value with size 32 to match size of target (7) File: E:/fpga/taximeter/taxi.v Line: 318
-Warning (10230): Verilog HDL assignment warning at taxi.v(321): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 321
-Warning (10230): Verilog HDL assignment warning at taxi.v(324): truncated value with size 32 to match size of target (10) File: E:/fpga/taximeter/taxi.v Line: 324
-Warning (10230): Verilog HDL assignment warning at taxi.v(332): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 332
-Warning (10230): Verilog HDL assignment warning at taxi.v(335): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 335
-Warning (10230): Verilog HDL assignment warning at taxi.v(344): truncated value with size 9 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 344
-Warning (10230): Verilog HDL assignment warning at taxi.v(399): truncated value with size 32 to match size of target (2) File: E:/fpga/taximeter/taxi.v Line: 399
-Info (12128): Elaborating entity "lattice" for hierarchy "lattice:EMPTY" File: E:/fpga/taximeter/taxi.v Line: 356
+Warning (10230): Verilog HDL assignment warning at taxi.v(137): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 137
+Warning (10230): Verilog HDL assignment warning at taxi.v(143): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 143
+Warning (10230): Verilog HDL assignment warning at taxi.v(146): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 146
+Warning (10230): Verilog HDL assignment warning at taxi.v(148): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 148
+Warning (10230): Verilog HDL assignment warning at taxi.v(170): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 170
+Warning (10230): Verilog HDL assignment warning at taxi.v(173): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 173
+Warning (10230): Verilog HDL assignment warning at taxi.v(215): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 215
+Warning (10230): Verilog HDL assignment warning at taxi.v(218): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 218
+Warning (10230): Verilog HDL assignment warning at taxi.v(222): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 222
+Warning (10230): Verilog HDL assignment warning at taxi.v(241): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 241
+Warning (10230): Verilog HDL assignment warning at taxi.v(244): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 244
+Warning (10230): Verilog HDL assignment warning at taxi.v(255): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 255
+Warning (10230): Verilog HDL assignment warning at taxi.v(263): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 263
+Warning (10230): Verilog HDL assignment warning at taxi.v(266): truncated value with size 32 to match size of target (10) File: E:/fpga/taximeter/taxi.v Line: 266
+Warning (10230): Verilog HDL assignment warning at taxi.v(281): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 281
+Warning (10230): Verilog HDL assignment warning at taxi.v(285): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 285
+Warning (10230): Verilog HDL assignment warning at taxi.v(304): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 304
+Warning (10230): Verilog HDL assignment warning at taxi.v(307): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 307
+Warning (10230): Verilog HDL assignment warning at taxi.v(319): truncated value with size 32 to match size of target (7) File: E:/fpga/taximeter/taxi.v Line: 319
+Warning (10230): Verilog HDL assignment warning at taxi.v(322): truncated value with size 32 to match size of target (3) File: E:/fpga/taximeter/taxi.v Line: 322
+Warning (10230): Verilog HDL assignment warning at taxi.v(325): truncated value with size 32 to match size of target (10) File: E:/fpga/taximeter/taxi.v Line: 325
+Warning (10230): Verilog HDL assignment warning at taxi.v(333): truncated value with size 32 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 333
+Warning (10230): Verilog HDL assignment warning at taxi.v(336): truncated value with size 32 to match size of target (9) File: E:/fpga/taximeter/taxi.v Line: 336
+Warning (10230): Verilog HDL assignment warning at taxi.v(345): truncated value with size 9 to match size of target (4) File: E:/fpga/taximeter/taxi.v Line: 345
+Warning (10230): Verilog HDL assignment warning at taxi.v(400): truncated value with size 32 to match size of target (2) File: E:/fpga/taximeter/taxi.v Line: 400
+Info (12128): Elaborating entity "lattice" for hierarchy "lattice:EMPTY" File: E:/fpga/taximeter/taxi.v Line: 357
 Warning (10235): Verilog HDL Always Construct warning at lattice.v(26): variable "onride" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 26
 Warning (10235): Verilog HDL Always Construct warning at lattice.v(28): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 28
 Warning (10235): Verilog HDL Always Construct warning at lattice.v(29): variable "lat_Vcnt" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/lattice.v Line: 29
@@ -651,16 +651,16 @@ Warning (10030): Net "lat_data_G.data_a" at lattice.v(9) has no driver or initia
 Warning (10030): Net "lat_data_G.waddr_a" at lattice.v(9) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 9
 Warning (10030): Net "lat_data_R.we_a" at lattice.v(8) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 8
 Warning (10030): Net "lat_data_G.we_a" at lattice.v(9) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/lattice.v Line: 9
-Info (12128): Elaborating entity "lcd_1602_driver" for hierarchy "lcd_1602_driver:LCD1602" File: E:/fpga/taximeter/taxi.v Line: 377
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce:waitingKEY" File: E:/fpga/taximeter/taxi.v Line: 385
-Info (12128): Elaborating entity "buzzer" for hierarchy "buzzer:soundBUZ" File: E:/fpga/taximeter/taxi.v Line: 403
+Info (12128): Elaborating entity "lcd_1602_driver" for hierarchy "lcd_1602_driver:LCD1602" File: E:/fpga/taximeter/taxi.v Line: 378
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:waitingKEY" File: E:/fpga/taximeter/taxi.v Line: 386
+Info (12128): Elaborating entity "buzzer" for hierarchy "buzzer:soundBUZ" File: E:/fpga/taximeter/taxi.v Line: 404
 Info (12128): Elaborating entity "sound_divide" for hierarchy "buzzer:soundBUZ|sound_divide:divideSOUND" File: E:/fpga/taximeter/buzzer.v Line: 23
-Info (12128): Elaborating entity "divide" for hierarchy "divide:divide1000" File: E:/fpga/taximeter/taxi.v Line: 410
-Info (12128): Elaborating entity "segment" for hierarchy "segment:seg_high" File: E:/fpga/taximeter/taxi.v Line: 411
+Info (12128): Elaborating entity "divide" for hierarchy "divide:divide1000" File: E:/fpga/taximeter/taxi.v Line: 411
+Info (12128): Elaborating entity "segment" for hierarchy "segment:seg_high" File: E:/fpga/taximeter/taxi.v Line: 412
 Warning (10030): Net "seg.data_a" at segment.v(6) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/segment.v Line: 6
 Warning (10030): Net "seg.waddr_a" at segment.v(6) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/segment.v Line: 6
 Warning (10030): Net "seg.we_a" at segment.v(6) has no driver or initial value, using a default initial value '0' File: E:/fpga/taximeter/segment.v Line: 6
-Info (12128): Elaborating entity "counter38" for hierarchy "counter38:speedLED" File: E:/fpga/taximeter/taxi.v Line: 412
+Info (12128): Elaborating entity "counter38" for hierarchy "counter38:speedLED" File: E:/fpga/taximeter/taxi.v Line: 413
 Warning (10235): Verilog HDL Always Construct warning at counter38.v(9): variable "en" is read inside the Always Construct but isn't in the Always Construct's Event Control File: E:/fpga/taximeter/counter38.v Line: 9
 Critical Warning (127005): Memory depth (16) in the design file differs from memory depth (10) in the Memory Initialization File "E:/fpga/taximeter/db/taxi.ram0_segment_b1ef0119.hdl.mif" -- setting initial value for remaining addresses to 0
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
@@ -673,9 +673,9 @@ Info (21057): Implemented 1003 device resources after synthesis - the final reso
     Info (21059): Implemented 62 output pins
     Info (21061): Implemented 930 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 77 warnings
-    Info: Peak virtual memory: 4704 megabytes
-    Info: Processing ended: Wed Dec 16 19:06:58 2020
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Peak virtual memory: 4705 megabytes
+    Info: Processing ended: Thu Dec 17 10:55:17 2020
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:31
 
 
