@@ -1,11 +1,11 @@
-Fitter Status : Successful - Thu Dec 17 15:15:17 2020
+Fitter Status : Successful - Fri Dec 18 10:00:29 2020
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : taxi
 Top-level Entity Name : taxi
 Family : MAX II
 Device : EPM1270T144C5
 Timing Models : Final
-Total logic elements : 865 / 1,270 ( 68 % )
+Total logic elements : 866 / 1,270 ( 68 % )
 Total pins : 73 / 116 ( 63 % )
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

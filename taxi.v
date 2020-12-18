@@ -342,7 +342,7 @@ module taxi (
         mile_mcnt   <= 10'd0;       mile_speed  <= 3'd0;
         mile_cnt    <= 6'd0;        wait_mcnt   <= 10'd0;
         wait_cnt    <= 3'd0;        night_cnt   <= 4'b0;
-        snd_status  <= 9'b0;
+        snd_status  <= 9'b0;        sound_on    <= 0;
         //数码管初始化
         seg_cnt     <= 0;           seg_cat     <= 8'hff;
         seg_data[0] <= 4'd3;        seg_data[1] <= 4'd1;
